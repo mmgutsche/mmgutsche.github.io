@@ -1,0 +1,52 @@
+body {
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #007bff;
+}
+
+.container {
+    max-width: 500px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Set the background color of read-only fields to gray */
+input[readonly] {
+    background-color: #e9ecef;
+    /* Light gray background */
+    border: 1px solid #ced4da;
+    color: #495057;
+    pointer-events: none;
+    /* Prevent interaction */
+}
+
+/* Remove the arrows (spinner controls) from number input fields */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Remove arrows in Firefox */
+}
+
+/* Prevent color change on focus */
+input[readonly]:focus {
+    background-color: #e9ecef;
+    /* Maintain light gray background on focus */
+    box-shadow: none;
+    /* Remove the focus outline */
+    border-color: #ced4da;
+    /* Maintain the border color */
+}

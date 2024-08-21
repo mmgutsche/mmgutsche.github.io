@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depth Error Estimator</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Depth Error Estimator</h1>
+
+        <form id="calculatorForm">
+            <!-- User Inputs -->
+            <div class="mb-3">
+                <label for="focalLengthPx" class="form-label">Focal Length [px]:</label>
+                <input type="number" class="form-control" id="focalLengthPx" step="any" value="500">
+            </div>
+            <div class="mb-3">
+                <label for="baselineMm" class="form-label">Baseline [mm]:</label>
+                <input type="number" class="form-control" id="baselineMm" step="any" value="500">
+            </div>
+            <div class="mb-3">
+                <label for="testDepthMm" class="form-label">Test-depth [mm]:</label>
+                <input type="number" class="form-control" id="testDepthMm" step="any" value="1800">
+            </div>
+            <div class="mb-3">
+                <label for="disparityErrorPx" class="form-label">Error of disparity estimator [px]:</label>
+                <input type="number" class="form-control" id="disparityErrorPx" step="any" value="1.60">
+            </div>
+
+            <!-- Intermediate Values (Read-Only) -->
+            <h4>Intermediate Values</h4>
+            <div class="mb-3">
+                <label for="disparityPx" class="form-label">Disparity at test-depth [px]:</label>
+                <input type="number" class="form-control" id="disparityPx" step="any" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="wrongDisparity1Px" class="form-label">Wrong disparity #1 [px]:</label>
+                <input type="number" class="form-control" id="wrongDisparity1Px" step="any" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="wrongDisparity2Px" class="form-label">Wrong disparity #2 [px]:</label>
+                <input type="number" class="form-control" id="wrongDisparity2Px" step="any" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="wrongDepth1Mm" class="form-label">Wrong depth #1 [mm]:</label>
+                <input type="number" class="form-control" id="wrongDepth1Mm" step="any" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="wrongDepth2Mm" class="form-label">Wrong depth #2 [mm]:</label>
+                <input type="number" class="form-control" id="wrongDepth2Mm" step="any" readonly>
+            </div>
+
+            <!-- Final Depth Errors -->
+            <h4>Final Depth Errors</h4>
+            <div class="mb-3">
+                <label for="depthError1Mm" class="form-label">Depth-error #1 [mm]:</label>
+                <input type="number" class="form-control" id="depthError1Mm" step="any" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="depthError2Mm" class="form-label">Depth-error #2 [mm]:</label>
+                <input type="number" class="form-control" id="depthError2Mm" step="any" readonly>
+            </div>
+
+            <button type="button" class="btn btn-primary w-100" onclick="calculateResults()">Calculate</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
