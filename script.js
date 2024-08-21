@@ -12,18 +12,15 @@ function calculateResults() {
     const wrongDepth1Mm = (focalLengthPx * baselineMm) / wrongDisparity1Px;
     const wrongDepth2Mm = (focalLengthPx * baselineMm) / wrongDisparity2Px;
 
-    // Calculate final depth errors
-    const depthError1Mm = wrongDepth1Mm - testDepthMm;
-    const depthError2Mm = wrongDepth2Mm - testDepthMm;
+    // Calculate final depth error (the larger one)
+    const depthErrorMm = wrongDepth2Mm - testDepthMm;
 
-    // Display intermediate values
-    document.getElementById("disparityPx").value = disparityPx.toFixed(2);
-    document.getElementById("wrongDisparity1Px").value = wrongDisparity1Px.toFixed(2);
-    document.getElementById("wrongDisparity2Px").value = wrongDisparity2Px.toFixed(2);
-    document.getElementById("wrongDepth1Mm").value = wrongDepth1Mm.toFixed(2);
-    document.getElementById("wrongDepth2Mm").value = wrongDepth2Mm.toFixed(2);
-
-    // Display final depth errors
-    document.getElementById("depthError1Mm").value = depthError1Mm.toFixed(2);
-    document.getElementById("depthError2Mm").value = depthError2Mm.toFixed(2);
+    // Display the final depth error
+    document.getElementById("depthErrorMm").value = depthErrorMm.toFixed(2);
 }
+
+// Initialize tooltips
+document.addEventListener('DOMContentLoaded', function () {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+});

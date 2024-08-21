@@ -5,72 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Depth Error Estimator</title>
-    <!-- Link to Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Link to custom CSS -->
+    <!-- Bootstrap Icons CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Depth Error Estimator</h1>
+        <h1 class="text-center mb-4">Optimize Your Camera Setup</h1>
+
+        <p class="text-center lead">Quickly estimate depth errors and improve your camera setup for better accuracy.</p>
 
         <form id="calculatorForm">
-            <!-- User Inputs -->
+            <!-- User Inputs with Tooltips -->
             <div class="mb-3">
-                <label for="focalLengthPx" class="form-label">Focal Length [px]:</label>
+                <label for="focalLengthPx" class="form-label">Focal Length [px]:
+                    <span data-bs-toggle="tooltip" title="The focal length of the camera lens, measured in pixels. Typical values range from 500 to 2000 pixels. For precise conversion, use your sensor size and pixel pitch.">
+                        <i class="bi bi-info-circle"></i>
+                    </span>
+                </label>
                 <input type="number" class="form-control" id="focalLengthPx" step="any" value="500">
             </div>
             <div class="mb-3">
-                <label for="baselineMm" class="form-label">Baseline [mm]:</label>
+                <label for="baselineMm" class="form-label">Baseline [mm]:
+                    <span data-bs-toggle="tooltip" title="The distance between the optical centers of the two camera lenses. Common baselines range from 50 mm to 200 mm, depending on the application.">
+                        <i class="bi bi-info-circle"></i>
+                    </span>
+                </label>
                 <input type="number" class="form-control" id="baselineMm" step="any" value="500">
             </div>
             <div class="mb-3">
-                <label for="testDepthMm" class="form-label">Test-depth [mm]:</label>
+                <label for="testDepthMm" class="form-label">Test-depth [mm]:
+                    <span data-bs-toggle="tooltip"
+                        title="The distance at which the object of interest is positioned relative to the camera. ">
+                        <i class="bi bi-info-circle"></i>
+                    </span>
+                </label>
                 <input type="number" class="form-control" id="testDepthMm" step="any" value="1800">
             </div>
             <div class="mb-3">
-                <label for="disparityErrorPx" class="form-label">Error of disparity estimator [px]:</label>
+                <label for="disparityErrorPx" class="form-label">Error of disparity estimator [px]:
+                    <span data-bs-toggle="tooltip"
+                        title="Indicates the accuracy of your algorithm in estimating disparity. Advanced algorithms typically achieve sub-pixel accuracy, with errors often ranging from 0.1 to 1 pixel. Note that most algorithms exhibit some outliers. For a comprehensive analysis, reach out to our experts.">
+                        <i class="bi bi-info-circle"></i>
+                    </span>
+                </label>
                 <input type="number" class="form-control" id="disparityErrorPx" step="any" value="1.60">
             </div>
 
-            <!-- Intermediate Values (Read-Only) -->
-            <h4>Intermediate Values</h4>
-            <div class="mb-3">
-                <label for="disparityPx" class="form-label">Disparity at test-depth [px]:</label>
-                <input type="number" class="form-control" id="disparityPx" step="any" readonly>
-            </div>
-            <div class="mb-3">
-                <label for="wrongDisparity1Px" class="form-label">Wrong disparity #1 [px]:</label>
-                <input type="number" class="form-control" id="wrongDisparity1Px" step="any" readonly>
-            </div>
-            <div class="mb-3">
-                <label for="wrongDisparity2Px" class="form-label">Wrong disparity #2 [px]:</label>
-                <input type="number" class="form-control" id="wrongDisparity2Px" step="any" readonly>
-            </div>
-            <div class="mb-3">
-                <label for="wrongDepth1Mm" class="form-label">Wrong depth #1 [mm]:</label>
-                <input type="number" class="form-control" id="wrongDepth1Mm" step="any" readonly>
-            </div>
-            <div class="mb-3">
-                <label for="wrongDepth2Mm" class="form-label">Wrong depth #2 [mm]:</label>
-                <input type="number" class="form-control" id="wrongDepth2Mm" step="any" readonly>
-            </div>
-
-            <!-- Final Depth Errors -->
-            <h4>Final Depth Errors</h4>
-            <div class="mb-3">
-                <label for="depthError1Mm" class="form-label">Depth-error #1 [mm]:</label>
-                <input type="number" class="form-control" id="depthError1Mm" step="any" readonly>
-            </div>
-            <div class="mb-3">
-                <label for="depthError2Mm" class="form-label">Depth-error #2 [mm]:</label>
-                <input type="number" class="form-control" id="depthError2Mm" step="any" readonly>
-            </div>
-
-            <button type="button" class="btn btn-primary w-100" onclick="calculateResults()">Calculate</button>
+            <button type="button" class="btn btn-primary w-100" onclick="calculateResults()">Calculate Depth
+                Error</button>
         </form>
+
+        <!-- Insights Section -->
+        <div id="insights" class="mt-4">
+            <h4>Calculation Insights</h4>
+            <p>Based on your inputs, here’s how your camera setup performs:</p>
+
+            <!-- Final Depth Error -->
+            <div class="mb-3">
+                <label for="depthErrorMm" class="form-label">Depth Error [mm]:
+                    <span data-bs-toggle="tooltip" title="This value represents the depth error derived from your inputs, typically ranging from a few millimeters to several centimeters, depending on the accuracy of your setup and the input parameters.">
+                        <i class="bi bi-info-circle"></i>
+                    </span>
+                </label>
+                <input type="number" class="form-control" id="depthErrorMm" step="any" readonly>
+            </div>
+         
+        </div>
+
+        <!-- Call to Action Section -->
+        <div id="cta" class="mt-5">
+            <h4>Ready to Optimize?</h4>
+            <p>Take the next step to improve your camera accuracy and depth estimation.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <a href="#download" class="btn btn-success btn-lg w-100 mb-3">Want to Learn More? Download Guide</a>
+                </div>
+                <div class="col-md-6">
+                    <a href="#talk-to-expert" class="btn btn-outline-primary btn-lg w-100">Concrete Needs? Talk to an Expert</a>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- Link to Bootstrap JavaScript and Popper.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
 
