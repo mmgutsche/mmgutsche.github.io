@@ -40,7 +40,7 @@ function calculateResults() {
     // Plot the chart
     let chart = createChart(distances);
     plotUpperBound(chart, accuraciesUpper);
-    plotLowerBound(chart, accuraciesLower);
+    //plotLowerBound(chart, accuraciesLower);
     plotTestDepth(chart, testDepthMm, depthErrorMmUpper, depthErrorMmLower);
     accuracyChart.update();
 }
@@ -112,7 +112,7 @@ function plotTestDepth(chart, testDistance, upperAccuracy, lowerAccuracy) {
         //label: 'Test Depth',
         data: [
             { x: testDistance, y: upperAccuracy },
-            { x: testDistance, y: lowerAccuracy }
+            // { x: testDistance, y: lowerAccuracy }
         ],
         borderColor: 'rgba(255, 255, 0, 1)',
         backgroundColor: 'rgba(255, 255, 0, 0.2)',

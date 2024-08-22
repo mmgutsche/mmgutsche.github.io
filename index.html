@@ -24,19 +24,19 @@
             <!-- User Inputs with Tooltips -->
             <div class="mb-3">
                 <label for="focalLengthPx" class="form-label">Focal Length [px]:
-                    <span data-bs-toggle="tooltip" title="The focal length of the camera lens, measured in pixels. Typical values range from 500 to 2000 pixels. For precise conversion, use your sensor size and pixel pitch.">
+                    <span data-bs-toggle="tooltip" title="The focal length of the camera lens, measured in pixels. Typical values range from 200 to 4000 pixels. For precise conversion, use your sensor size and pixel pitch.">
                         <i class="bi bi-info-circle"></i>
                     </span>
                 </label>
-                <input type="number" class="form-control" id="focalLengthPx" step="any" value="500">
+                <input type="number" class="form-control" id="focalLengthPx" step="any" value="400">
             </div>
             <div class="mb-3">
                 <label for="baselineMm" class="form-label">Baseline [mm]:
-                    <span data-bs-toggle="tooltip" title="The distance between the optical centers of the two camera lenses. Common baselines range from 50 mm to 200 mm, depending on the application.">
+                    <span data-bs-toggle="tooltip" title="The distance between the optical centers of the two camera lenses.">
                         <i class="bi bi-info-circle"></i>
                     </span>
                 </label>
-                <input type="number" class="form-control" id="baselineMm" step="any" value="50">
+                <input type="number" class="form-control" id="baselineMm" step="any" value="600">
             </div>
             <div class="mb-3">
                 <label for="testDepthMm" class="form-label">Test-depth [mm]:
@@ -50,7 +50,7 @@
             <div class="mb-3">
                 <label for="disparityErrorPx" class="form-label">Error of disparity estimator [px]:
                     <span data-bs-toggle="tooltip"
-                        title="Indicates the accuracy of your algorithm in estimating disparity. Advanced algorithms typically achieve sub-pixel accuracy, with errors often ranging from 0.1 to 1 pixel. Note that most algorithms exhibit some outliers. For a comprehensive analysis, reach out to our experts.">
+                        title="Indicates the accuracy of your algorithm in estimating disparity. Advanced algorithms typically achieve sub-pixel accuracy, with errors often ranging from 0.1 to 10 pixels. Note that most algorithms exhibit some outliers. For a comprehensive analysis, reach out to our experts.">
                         <i class="bi bi-info-circle"></i>
                     </span>
                 </label>
