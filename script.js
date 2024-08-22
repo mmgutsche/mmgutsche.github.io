@@ -116,7 +116,7 @@ function plotTestDepth(chart, testDistance, upperAccuracy, lowerAccuracy) {
         ],
         borderColor: 'rgba(255, 255, 0, 1)',
         backgroundColor: 'rgba(255, 255, 0, 0.2)',
-        pointRadius: 6,
+        pointRadius: 10,
         fill: false,
         tension: 0.4,
         showLine: false
